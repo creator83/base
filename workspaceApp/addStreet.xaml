@@ -1,0 +1,20 @@
+﻿<Window x:Class="workspaceApp.addStreet"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:workspaceApp"
+        mc:Ignorable="d"
+        Title="addStreet" Height="275" Width="300">
+    <Grid>
+        <Label x:Name="regionLabel" Visibility="Visible"  Content="Регион" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="89" Margin="102,10,0,0"/>
+        <ComboBox x:Name="region" HorizontalAlignment="Left" Height="27" Margin="22,35,0,0" VerticalAlignment="Top" Width="236" IsEditable="True" SelectionChanged="region_SelectionChanged"/>
+        <Label x:Name="stateLabel" Visibility="Visible"  Content="Населённый пункт" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="128" Margin="78,63,0,0"/>
+        <ComboBox x:Name="state" HorizontalAlignment="Left" Height="27" Margin="22,88,0,0" VerticalAlignment="Top" Width="236" IsEditable="True"/>
+        <Label x:Name="streetLabel" Visibility="Visible"  Content="Улица" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="128" Margin="78,127,0,0"/>
+        <TextBox x:Name="street" HorizontalAlignment="Left" Height="27" Margin="87,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171"/>
+        <Button x:Name="addButton" Content="Добавить" HorizontalAlignment="Left" Height="32" Margin="22,198,0,0" VerticalAlignment="Top" Width="95" Click="addButton_Click"/>
+        <ComboBox x:Name="prfx" HorizontalAlignment="Left" Height="27" Margin="22,154,0,0" VerticalAlignment="Top" Width="51" IsEditable="True" RenderTransformOrigin="0.601,2.198"/>
+
+    </Grid>
+</Window>

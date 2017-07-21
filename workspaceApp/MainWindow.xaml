@@ -1,0 +1,136 @@
+﻿<Window x:Class="workspaceApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:workspaceApp"
+        mc:Ignorable="d"
+        Title="База" Height="400" Width="550">
+    <TabControl  x:Name="base">
+        <TabItem x:Name="createTU">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="3">Создание ТУ</TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <TabItem.Content>
+                <Grid >
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="29*"/>
+                        <ColumnDefinition Width="162*"/>
+                        <ColumnDefinition Width="17*"/>
+                        <ColumnDefinition Width="16*"/>
+                        <ColumnDefinition Width="74*"/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="209*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="newNote" Content="Создать запись" HorizontalAlignment="Left" Height="42" Margin="7,276,0,0" VerticalAlignment="Top" Width="98" Click="newNote_Click" Grid.ColumnSpan="2"/>
+                    <GroupBox x:Name="dateOfClient" Header="Данные заявителя" Height="158" Margin="10,19,10,0" VerticalAlignment="Top" Grid.ColumnSpan="7">
+                        <ComboBox x:Name="street" HorizontalAlignment="Left" Height="23" Margin="10,112,0,0" VerticalAlignment="Top" Width="164" TabIndex="8" IsEditable="True"/>
+                    </GroupBox>
+                    <TextBox x:Name="firstName" Height="23" Margin="116,61,49,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.393,0.206" UndoLimit="20" TabIndex="2" Grid.Column="1" Grid.ColumnSpan="4"/>
+                    <Label x:Name="sureNameLabel" Content="Фамилия" HorizontalAlignment="Left" Height="25" Margin="17,39,0,0" VerticalAlignment="Top" Width="62" Grid.Column="1"/>
+                    <Label x:Name="firstNameLabel" Content="Имя" HorizontalAlignment="Left" Height="24" Margin="150,39,0,0" VerticalAlignment="Top" Width="35" Grid.Column="1" Grid.ColumnSpan="3"/>
+                    <Label x:Name="midleNameLabel" Content="Отчество" HorizontalAlignment="Left" Height="23" Margin="61,39,0,0" VerticalAlignment="Top" Width="62" Grid.Column="4" Grid.ColumnSpan="3"/>
+                    <TextBox x:Name="midleName" HorizontalAlignment="Left" Height="23" Margin="43,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" UndoLimit="20" Grid.ColumnSpan="3" TabIndex="3" Grid.Column="4"/>
+                    <Label x:Name="streetLabel" Content="Улица" HorizontalAlignment="Left" Height="25" Margin="46,125,0,0" VerticalAlignment="Top" Width="62" Grid.Column="1"/>
+                    <TextBox x:Name="sureName" Height="23" Margin="27,61,60,0" TextWrapping="Wrap" VerticalAlignment="Top" UndoLimit="20" TabIndex="1" Grid.ColumnSpan="2"/>
+                    <Label x:Name="stateRegLabel" Content="Населённый пункт" HorizontalAlignment="Left" Height="25" Margin="26,84,0,0" VerticalAlignment="Top" Width="126" Grid.ColumnSpan="3" Grid.Column="4"/>
+                    <ComboBox x:Name="stateReg" HorizontalAlignment="Left" Height="23" Margin="23,106,0,0" VerticalAlignment="Top" Width="119" Grid.ColumnSpan="3" TabIndex="7" Grid.Column="4" IsEditable="True" SelectionChanged="stateReg_SelectionChanged"/>
+                    <TextBox x:Name="numHouse" HorizontalAlignment="Left" Height="23" Margin="26,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" UndoLimit="5" TabIndex="10" Grid.Column="4"/>
+                    <TextBox x:Name="numApp" HorizontalAlignment="Left" Height="23" Margin="66,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" UndoLimit="5" TabIndex="11" Grid.ColumnSpan="3" Grid.Column="4"/>
+                    <Label x:Name="numHouseLabel" Content="д." HorizontalAlignment="Left" Height="25" Margin="35,125,0,0" VerticalAlignment="Top" Width="20" Grid.Column="4"/>
+                    <Label x:Name="numAppLabel" Content="кв." HorizontalAlignment="Left" Height="24" Margin="0,125,0,0" VerticalAlignment="Top" Width="25" Grid.Column="6"/>
+                    <Label x:Name="numPhoneLabel" Content="тел." HorizontalAlignment="Left" Height="23" Margin="115,40,0,0" VerticalAlignment="Top" Width="32" Grid.Column="6"/>
+                    <TextBox x:Name="numPhone1" HorizontalAlignment="Left" Height="23" Margin="87,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" UndoLimit="3" Grid.Column="6" TabIndex="4"/>
+                    <TextBox x:Name="numPhone2" HorizontalAlignment="Left" Height="23" Margin="125,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" UndoLimit="7" Grid.Column="6" TabIndex="5"/>
+                    <GroupBox x:Name="land" Header="Данные участка" HorizontalAlignment="Left" Height="95" Margin="10,178,0,0" VerticalAlignment="Top" Width="152" IsEnabled="False" Grid.ColumnSpan="2">
+                        <Label x:Name="stateRegLabel_Copy" Content="Населённый пункт" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="119" Margin="13,6,0,0"/>
+                    </GroupBox>
+                    <ComboBox x:Name="reg" HorizontalAlignment="Left" Height="23" Margin="27,223,0,0" VerticalAlignment="Top" Width="119" Grid.ColumnSpan="2" IsEditable="True" TabIndex="12"/>
+                    <GroupBox x:Name="numKadGroup" Grid.ColumnSpan="6" Header="Кадастровый номер" HorizontalAlignment="Left" Height="95" Margin="129,177,0,0" VerticalAlignment="Top" Width="151" Grid.Column="1">
+                        <Label x:Name="numKvLabel_Copy" Content="квартал" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="56" Margin="10,5,0,0"/>
+                    </GroupBox>
+                    <Label x:Name="numKadLabel" Content="номер" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="56" Margin="24,198,0,0" Grid.Column="4" Grid.ColumnSpan="3"/>
+                    <TextBox x:Name="numKad1" HorizontalAlignment="Left" Height="23" Margin="132,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" UndoLimit="20" Grid.Column="1" TabIndex="13" Grid.ColumnSpan="4"/>
+                    <TextBox x:Name="numKad2" HorizontalAlignment="Left" Height="23" Margin="21,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="51" UndoLimit="20" Grid.Column="4" TabIndex="14"/>
+                    <GroupBox x:Name="address" Header="Адрес" HorizontalAlignment="Left" Height="95" Margin="5,177,0,0" VerticalAlignment="Top" Width="198" Grid.Column="6"/>
+                    <TextBox x:Name="addressText" Grid.Column="6" HorizontalAlignment="Left" Height="65" Margin="19,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" TabIndex="15"/>
+                    <ComboBox x:Name="typeTu" HorizontalAlignment="Left" Height="23" Margin="89,288,0,0" VerticalAlignment="Top" Width="148" IsReadOnly="True" SelectedIndex="0" AutomationProperties.IsRowHeader="True" Grid.Column="1" Grid.ColumnSpan="4"/>
+                    <Label x:Name="typeTuLabel" Content="тип ТУ" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="56" Margin="131,264,0,0" Grid.Column="1" Grid.ColumnSpan="3"/>
+                    <ComboBox x:Name="region" HorizontalAlignment="Left" Height="23" Margin="27,106,0,0" VerticalAlignment="Top" Width="164" TabIndex="6" SelectionChanged="region_SelectionChanged" Grid.ColumnSpan="2" IsEditable="True" />
+                    <Label x:Name="regionLabel" Content="регион" HorizontalAlignment="Left" Height="25" Margin="44,84,0,0" VerticalAlignment="Top" Width="65" Grid.Column="1"/>
+                    <Button x:Name="addState" Content="+" HorizontalAlignment="Left" Height="24" Margin="79,105,0,0" VerticalAlignment="Top" Width="33" Grid.Column="6" Click="addState_Click"/>
+                    <Button x:Name="addRegion" Content="+" HorizontalAlignment="Left" Height="24" Margin="11,106,0,0" VerticalAlignment="Top" Width="33" Click="addRegion_Click" Grid.Column="2" Grid.ColumnSpan="3"/>
+                    <Button x:Name="addStreet" Content="+" HorizontalAlignment="Left" Height="24" Margin="11,146,0,0" VerticalAlignment="Top" Width="33" Grid.Column="2" Grid.ColumnSpan="3" RenderTransformOrigin="1.394,0.597" Click="addStreet_Click"/>
+
+                </Grid>
+            </TabItem.Content>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="3">Поиск ТУ</TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <TabItem.Content>
+                <Grid>
+                    <DataGrid x:Name="TuList" AutoGenerateColumns="True">
+                        <DataGrid.Resources>
+
+                        </DataGrid.Resources>
+
+                    </DataGrid>
+                </Grid>
+            </TabItem.Content>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="3">Создание писем</TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <TabItem.Content>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="16*"/>
+                        <ColumnDefinition Width="17*"/>
+                        <ColumnDefinition Width="17*"/>
+                        <ColumnDefinition Width="455*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="sureNamePLabel" Visibility="Hidden"  Content="Фамилия заявителя" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="119" Margin="247,6,0,0" Grid.Column="4"/>
+                    <ComboBox x:Name="sureNameP" Visibility="Hidden" HorizontalAlignment="Right" Height="23" Margin="0,37,84,0" VerticalAlignment="Top" Width="164" TabIndex="1" IsEditable="True" Grid.Column="4"/>
+                    <Label x:Name="letterTypeL" Content="Тип документа" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="100" Margin="10,6,0,0" Grid.Column="4"/>
+                    <ComboBox x:Name="letterType" HorizontalAlignment="Right" Height="23" Margin="0,38,311,0" VerticalAlignment="Top" Width="164" TabIndex="1" IsEditable="True" Grid.ColumnSpan="3" SelectionChanged="letterType_SelectionChanged" Grid.Column="2"/>
+                    <Button x:Name="addP" Visibility="Hidden" Content="+" HorizontalAlignment="Left" Height="24" Margin="387,37,0,0" VerticalAlignment="Top" Width="33" Grid.Column="4" RenderTransformOrigin="6.97,0.542" Click="addP_Click"/>
+                    <Button x:Name="addChief" Visibility="Hidden" Content="+" HorizontalAlignment="Left" Height="24" Margin="387,123,0,0" VerticalAlignment="Top" Width="33" Grid.Column="4" RenderTransformOrigin="6.97,0.542" Click="addChief_Click"/>
+                    <Button x:Name="addSubChief" Visibility="Hidden" Content="+" HorizontalAlignment="Left" Height="24" Margin="151,123,0,0" VerticalAlignment="Top" Width="33" Grid.Column="4" RenderTransformOrigin="6.97,0.542" Click="addSubChief_Click"/>
+                    <CheckBox x:Name="checkToChief" IsThreeState="False" Visibility="Hidden" IsChecked="False" Height="190" Width="120" Content="Ответ в край" Margin="211,71,124,71" Checked="checkToChief_Checked" Unchecked="checkToChief_Unchecked" Grid.Column="4"/>
+                    <Label x:Name="sureNameCLabel" Visibility="Hidden"  Content="Руководителю" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="141" Margin="224,97,0,0" Grid.Column="4"/>
+                    <Label x:Name="sureNameSubCLabel" Visibility="Hidden"  Content="Фамилия руководителя" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="142" Margin="5,97,0,0" Grid.ColumnSpan="2" Grid.Column="3"/>
+
+                    <ComboBox x:Name="sureNameSubChief" Visibility="Hidden" HorizontalAlignment="Right" Height="24" Margin="0,123,319,0" VerticalAlignment="Top" Width="164" TabIndex="1" IsEditable="True" Grid.ColumnSpan="3" Grid.Column="2"/>
+                    <ComboBox x:Name="sureNameChief" Visibility="Hidden" HorizontalAlignment="Right" Height="24" Margin="0,123,84,0" VerticalAlignment="Top" Width="164" TabIndex="1" IsEditable="True" Grid.Column="4"/>
+                    <Label x:Name="descLabel" Content="Краткое содержание" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="134" Margin="5,152,0,0" Grid.ColumnSpan="2" Grid.Column="3"/>
+                    <TextBox x:Name="descpription" HorizontalAlignment="Left" Height="65" Margin="6,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" TabIndex="15" Grid.ColumnSpan="3" Grid.Column="2"/>
+                    <Button x:Name="newDoc" Content="Создать документ" HorizontalAlignment="Left" Height="42" Margin="6,275,0,0" VerticalAlignment="Top" Width="122" Grid.ColumnSpan="3" Grid.Column="2" Click="newDoc_Click"/>
+                </Grid>
+            </TabItem.Content>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="3">Поиск писем</TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <TabItem.Content>
+                <Grid>
+
+                </Grid>
+            </TabItem.Content>
+        </TabItem>
+    </TabControl>
+</Window>

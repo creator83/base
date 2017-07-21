@@ -1,0 +1,35 @@
+﻿<Window x:Class="workspaceApp.addPerson"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:workspaceApp"
+        mc:Ignorable="d"
+        Title="addPerson" Height="300" Width="500">
+    <Grid>
+        <Label x:Name="sureNameLabel" Visibility="Visible"  Content="Фамилия" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="62" Margin="59,6,0,0"/>
+        <TextBox x:Name="sureName" HorizontalAlignment="Left" Height="23" Margin="7,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" TabIndex="15"/>
+        <Label x:Name="firstNameLabel" Visibility="Visible"  Content="Имя" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="62" Margin="72,58,0,0"/>
+        <TextBox x:Name="firstName" HorizontalAlignment="Left" Height="23" Margin="7,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" TabIndex="15"/>
+        <Label x:Name="midleNameLabel" Visibility="Visible"  Content="Отчество" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="62" Margin="59,113,0,0"/>
+        <TextBox x:Name="middleName" HorizontalAlignment="Left" Height="23" Margin="7,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" TabIndex="15"/>
+        <Label x:Name="phoneLabel" Visibility="Visible"  Content="тел." HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="62" Margin="85,163,0,0"/>
+        <TextBox x:Name="phone1" Visibility="Visible" HorizontalAlignment="Right" Height="23" Margin="0,189,442,0" VerticalAlignment="Top" Width="43" TabIndex="1" RenderTransformOrigin="0.476,4.174"/>
+        <TextBox x:Name="phone2" Visibility="Visible" HorizontalAlignment="Right" Height="23" Margin="0,189,321,0" VerticalAlignment="Top" Width="111" TabIndex="1" RenderTransformOrigin="0.476,4.174"/>
+        <Label x:Name="regionLabel" Visibility="Visible"  Content="Регион" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="62" Margin="245,6,0,0"/>
+        <ComboBox x:Name="region" Visibility="Visible" HorizontalAlignment="Right" Height="23" Margin="0,30,135,0" VerticalAlignment="Top" Width="164" TabIndex="1" IsEditable="True" RenderTransformOrigin="0.476,4.174" SelectionChanged="region_SelectionChanged"/>
+        <Label x:Name="stateLabel" Visibility="Visible"  Content="Город" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="62" Margin="245,58,0,0"/>
+        <ComboBox x:Name="state" Visibility="Visible" HorizontalAlignment="Right" Height="23" Margin="0,84,135,0" VerticalAlignment="Top" Width="164" TabIndex="1" IsEditable="True" RenderTransformOrigin="0.476,4.174" SelectionChanged="state_SelectionChanged"/>
+        <Label x:Name="streetLabel" Visibility="Visible"  Content="улица" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="62" Margin="245,113,0,0"/>
+        <ComboBox x:Name="street" Visibility="Visible" HorizontalAlignment="Right" Height="23" Margin="0,140,173,0" VerticalAlignment="Top" Width="126" TabIndex="1" IsEditable="True" RenderTransformOrigin="0.476,4.174"/>
+        <Label x:Name="houseLabel" Visibility="Visible"  Content="д." HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="22" Margin="394,112,0,0"/>
+        <TextBox x:Name="house" Visibility="Visible" HorizontalAlignment="Right" Height="23" Margin="0,140,66,0" VerticalAlignment="Top" Width="39" TabIndex="1" RenderTransformOrigin="0.476,4.174"/>
+        <Label x:Name="appLabel" Visibility="Visible"  Content="кв." HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="22" Margin="444,112,0,0" RenderTransformOrigin="2.636,0.538"/>
+        <TextBox x:Name="app" Visibility="Visible" HorizontalAlignment="Right" Height="23" Margin="0,140,17,0" VerticalAlignment="Top" Width="39" TabIndex="1" RenderTransformOrigin="0.476,4.174"/>
+        <Button x:Name="addRegion" Visibility="Visible" Content="+" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="33" RenderTransformOrigin="6.97,0.542" Margin="383,29,0,0" Click="addRegion_Click"/>
+        <Button x:Name="addState" Visibility="Visible" Content="+" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="33" RenderTransformOrigin="6.97,0.542" Margin="383,83,0,0" Click="addState_Click"/>
+        <Button x:Name="addP" Visibility="Visible" Content="Добавить" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="127" RenderTransformOrigin="6.97,0.542" Margin="7,224,0,0" Click="addP_Click"/>
+        <Button x:Name="addStreet" Visibility="Visible" Content="+" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="33" RenderTransformOrigin="6.97,0.542" Margin="334,140,0,0" Click="addStreet_Click"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="workspaceApp.addChiefs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:workspaceApp"
+        mc:Ignorable="d"
+        Title="addChiefs" Height="220" Width="300">
+    <Grid>
+        <Label x:Name="sureNameLabel" Visibility="Visible"  Content="Фамилия" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="62" Margin="29,6,0,0"/>
+        <TextBox x:Name="sureName" HorizontalAlignment="Left" Height="23" Margin="7,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" TabIndex="15"/>
+        <Label x:Name="firstNameLabel" Visibility="Visible"  Content="Имя" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="62" Margin="42,51,0,0"/>
+        <TextBox x:Name="firstName" HorizontalAlignment="Left" Height="23" Margin="7,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" TabIndex="15"/>
+        <Label x:Name="middleNameLabel" Visibility="Visible"  Content="Отчество" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="62" Margin="29,100,0,0"/>
+        <TextBox x:Name="middleName" HorizontalAlignment="Left" Height="23" Margin="7,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" TabIndex="15"/>
+        <Label x:Name="regioLabel" Visibility="Hidden"  Content="администрация" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="98" Margin="182,4,0,0"/>
+        <ComboBox x:Name="region" Visibility="Hidden" HorizontalAlignment="Right" Height="23" Margin="0,28,10,0" VerticalAlignment="Top" Width="107" TabIndex="1" IsEditable="True" RenderTransformOrigin="0.476,4.174"/>
+        <Button x:Name="addP" Visibility="Visible" Content="Добавить" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="127" RenderTransformOrigin="6.97,0.542" Margin="7,156,0,0" Click="addP_Click"/>
+        <Label x:Name="descLabel" Content="Должность" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="71" Margin="175,51,0,0"/>
+        <TextBox x:Name="descpription" HorizontalAlignment="Left" Height="67" Margin="142,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" TabIndex="15"/>
+        <CheckBox x:Name="admCheck" IsThreeState="False" Visibility="Visible" IsChecked="False" Height="20" Width="45" Content="адм." Grid.ColumnSpan="2" Margin="60,0,50,92" Checked="admCheck_Checked" Unchecked="admCheck_Unchecked"/>
+
+    </Grid>
+</Window>
