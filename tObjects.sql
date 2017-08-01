@@ -66,3 +66,9 @@ SELECT objects
 UPDATE objects SET
 district = 'Новороссийский';
 
+qmake "INCLUDEPATH+=D:\mysql-5.7\lib" "LIBS+=D:\mysql-5.7\lib\libmysql.lib" mysql.pro
+nmake
+
+SELECT count(*) FROM tu WHERE DATE(nDate) BETWEEN '2017-07-01' AND '2017-07-31';
+
+SELECT count(*) FROM tu WHERE nDate BETWEEN STR_TO_DATE('2017-07-01', '%Y-%m-%d') AND STR_TO_DATE('2017-07-31', '%Y-%m-%d');

@@ -317,7 +317,7 @@ namespace workspaceApp
             
             oDoc.Bookmarks["nKad"].Range.Text = numKad1.Text + ":" + numKad2.Text;
             oDoc.Activate();
-            //oDoc.SaveAs(filePath);
+            oDoc.SaveAs(filePath);
             foreach (var i in allTBox)
             {
                 i.Text = null;
