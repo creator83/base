@@ -14,11 +14,11 @@
         <Label x:Name="middleNameLabel" Visibility="Visible"  Content="Отчество" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="62" Margin="29,100,0,0"/>
         <TextBox x:Name="middleName" HorizontalAlignment="Left" Height="23" Margin="7,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" TabIndex="15"/>
         <Label x:Name="regioLabel" Visibility="Hidden"  Content="администрация" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="98" Margin="182,4,0,0"/>
-        <ComboBox x:Name="region" Visibility="Hidden" HorizontalAlignment="Right" Height="23" Margin="0,28,10,0" VerticalAlignment="Top" Width="107" TabIndex="1" IsEditable="True" RenderTransformOrigin="0.476,4.174"/>
-        <Button x:Name="addP" Visibility="Visible" Content="Добавить" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="127" RenderTransformOrigin="6.97,0.542" Margin="7,156,0,0" Click="addP_Click"/>
+        <Label x:Name="posLabel" Visibility="Visible"  Content="Подразделение" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="107" Margin="159,6,0,0"/>
+        <ComboBox x:Name="position" Visibility="Visible" HorizontalAlignment="Right" Height="23" Margin="0,30,12,0" VerticalAlignment="Top" Width="138" TabIndex="1" IsEditable="True" RenderTransformOrigin="0.476,4.174"/>
+        <Button x:Name="addP" Visibility="Visible" Content="Добавить" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="112" RenderTransformOrigin="6.97,0.542" Margin="7,156,0,0" Click="addP_Click"/>
         <Label x:Name="descLabel" Content="Должность" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="71" Margin="175,51,0,0"/>
         <TextBox x:Name="descpription" HorizontalAlignment="Left" Height="67" Margin="142,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" TabIndex="15"/>
-        <CheckBox x:Name="admCheck" IsThreeState="False" Visibility="Visible" IsChecked="False" Height="20" Width="45" Content="адм." Grid.ColumnSpan="2" Margin="60,0,50,92" Checked="admCheck_Checked" Unchecked="admCheck_Unchecked"/>
 
     </Grid>
 </Window>

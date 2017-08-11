@@ -336,6 +336,23 @@ CREATE TABLE answers
 	INDEX ixdate (nDate)
 )ENGINE = INNODB;
 
+CREATE TABLE groupAnswers
+(	
+	id int unsigned NOT NULL AUTO_INCREMENT,
+	nDate DATE,
+	sureName CHAR(20) CHARACTER SET utf8 NOT NULL,
+	fromChief CHAR(20) CHARACTER SET utf8 NOT NULL,
+	toChief CHAR(20) CHARACTER SET utf8 NOT NULL,
+	description CHAR(100) CHARACTER SET utf8 NOT NULL DEFAULT "",
+	filePlace CHAR(50) CHARACTER SET utf8 NOT NULL,
+	FOREIGN KEY ixPerson(sureName) REFERENCES person (sureName),
+	FOREIGN KEY ixFromChief(fromChief) REFERENCES chiefs (sureName),
+	FOREIGN KEY ixToChief(toChief) REFERENCES chiefs (sureName),
+	PRIMARY KEY ixId(id),
+	INDEX ixdate (nDate)
+)ENGINE = INNODB;
+
+
 CREATE TABLE letters2
 (
 	id int unsigned NOT NULL AUTO_INCREMENT,

@@ -92,9 +92,9 @@ namespace workspaceApp
             //шаблоны писем
             globalEl.templateLetters.Add ("D:\\Обращения, поручения\\обращение.dotx");
             globalEl.templateLetters.Add ("D:\\Обращения, поручения\\служебная_записка.dotx");
-            globalEl.templateLetters.Add ("");
-            globalEl.templateLetters.Add ("");
-            globalEl.templateLetters.Add ("");
+            globalEl.templateLetters.Add ("D:\\Обращения, поручения\\инициативное.dotx");
+            globalEl.templateLetters.Add ("D:\\Обращения, поручения\\ответ_для_свода.dotx");
+            globalEl.templateLetters.Add ("D:\\Обращения, поручения\\поручение.dotx");
 
             //шаблоны технических условий
             globalEl.templateTu.Add("D:\\Технические условия\\wProj.dotx");
@@ -446,7 +446,7 @@ namespace workspaceApp
             }
             else
             {
-                globalEl.connector.setQuery("SELECT sureName FROM chiefs where workDistrict = (SELECT id from distPos WHERE name <> 'Администрация муниципального образования город Новороссийск')");
+                globalEl.connector.setQuery("SELECT sureName FROM chiefs where workDistrict = (SELECT id from distPos WHERE name = 'Администрация муниципального образования город Новороссийск')");
                 globalEl.connector.openConnection();
                 globalEl.connector.readBuffer(ref sureNameChief);
                 globalEl.connector.closeConnection();
@@ -459,7 +459,8 @@ namespace workspaceApp
             sureNameCLabel.Visibility = Visibility.Visible;
             sureNameChief.Visibility = Visibility.Visible;
             addChief.Visibility = Visibility.Visible;
-            globalEl.connector.setQuery("SELECT sureName FROM chiefs");
+            sureNameChief.Items.Clear();
+            globalEl.connector.setQuery("SELECT sureName FROM chiefs where workDistrict = (SELECT id from distPos WHERE name = 'Администрация Краснодарского края')");
             globalEl.connector.openConnection();
             globalEl.connector.readBuffer(ref sureNameChief);
             globalEl.connector.closeConnection();
@@ -592,10 +593,11 @@ namespace workspaceApp
                 + "VALUES(CURDATE(), '" + nameP[(int)letterFields.sureName] + "', '" 
                 + nameSC[(int)letterFields.sureName] + "', '" + nameSSC[(int)letterFields.sureName] 
                 + "', '" + descpription.Text + "', '" + filePath1 + "')";
-            globalEl.connector.setQuery(sql);
+            descpription.Text = sql;
+            /*globalEl.connector.setQuery(sql);
             globalEl.connector.openConnection();
             globalEl.connector.executeCommand();
-            globalEl.connector.closeConnection();
+            globalEl.connector.closeConnection();*/
 
             //возврат значения префикса улицы
             /*

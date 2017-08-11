@@ -22,32 +22,33 @@ namespace workspaceApp
         public addChiefs()
         {
             InitializeComponent();
-            region.Items.Add("");
-            region.Items.Add("Новороссийск");
-            region.Items.Add("Краснодар");
-            region.SelectedIndex = region.Items.IndexOf("");
+            globalEl.connector.setQuery("SELECT name FROM distpos");
+            globalEl.connector.openConnection();
+            globalEl.connector.readBuffer(ref position);
+            globalEl.connector.closeConnection();
 
         }
 
         private void addP_Click(object sender, RoutedEventArgs e)
         {
-            globalEl.connector.setQuery("INSERT INTO chiefs (sureName, firstName, midleName, position, novoross) VALUES ('" + sureName.Text + "', '" + firstName.Text + "', '"+ middleName.Text + "', '" +  descpription.Text + "', " + region.SelectedIndex.ToString() + ")");
+            string sql = "INSERT INTO chiefs (sureName, " +
+            "firstName, midleName, workDistrict, position) VALUES ('" +
+            sureName.Text + "', '" + firstName.Text + "', '" + middleName.Text
+            + "', (SELECT id from distPos WHERE name ='" + position.SelectedValue.ToString() + "'), '" + descpription.Text + "')";
+            //descpription.Text = sql;
+            
+            globalEl.connector.setQuery(sql);
             globalEl.connector.openConnection();
             globalEl.connector.executeCommand();
+            globalEl.connector.closeConnection();
+            MainWindow window = this.Owner as MainWindow;
+            window.sureNameChief.Items.Clear();
+            globalEl.connector.setQuery("SELECT sureName FROM chiefs where workDistrict = (SELECT id from distPos WHERE name <> 'Администрация муниципального образования город Новороссийск')");
+            globalEl.connector.openConnection();
+            globalEl.connector.readBuffer(ref window.sureNameChief);
             globalEl.connector.closeConnection();
             Close();
         }
 
-        private void admCheck_Checked(object sender, RoutedEventArgs e)
-        {
-            region.Visibility = Visibility.Visible;
-            regioLabel.Visibility = Visibility.Visible;
-        }
-
-        private void admCheck_Unchecked(object sender, RoutedEventArgs e)
-        {
-            region.Visibility = Visibility.Hidden;
-            regioLabel.Visibility = Visibility.Hidden;
-        }
     }
 }

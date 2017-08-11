@@ -99,6 +99,7 @@ namespace workspaceApp
 
         private void addStreet_Click(object sender, RoutedEventArgs e)
         {
+            globalEl.sItems.state = state.SelectedIndex;
             addStreet w1 = new addStreet();
             w1.Owner = this;
             w1.ShowDialog();
