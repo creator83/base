@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\ProgramData\MySQL\MySQL Server 5.7\Data\workspace\workspaceApp\workspaceApp\obj\Debug\
+C:\server\data\htdocs\base\workspaceApp\obj\Debug\
 workspaceApp
 none
 false
 DEBUG;TRACE
-C:\ProgramData\MySQL\MySQL Server 5.7\Data\workspace\workspaceApp\workspaceApp\App.xaml
+C:\server\data\htdocs\base\workspaceApp\App.xaml
 6-267427619
 
-16-1300171353
-18-1693742278
+1622024330
+171876641506
 addChiefs.xaml;addPerson.xaml;addRegWindow.xaml;addStateWindow.xaml;addStreet.xaml;MainWindow.xaml;
 
 True

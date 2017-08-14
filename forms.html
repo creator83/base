@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Демонстрация: форма</title>
+		<style>
+			form{
+				border: 3px solid red;
+				
+			}
+			legend{
+				border-width: 2px;
+				border-style: solid;
+				border-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="">
+			<input type="text" name="login" value="Василий"/><br/>
+			<input type="password" name="pass"/><br/>
+			<input type="submit" value="подключится"/>
+			<input type="reset" value="очистить"/>
+			<input type="image" src="\..\..\labs\imgs.logo.gif"/><br/>
+			<input type="checkbox" name="check" unchecked id="chk"/>
+			<label for="chk">Чеснарик?</label><br/>
+			<fieldset>
+				<legend>Блок</legend>
+				<input type="radio" name="rad" value="0"/>
+				<input type="radio" name="rad" value="1"/><br/>
+			</fieldset>
+			<select name="book" size="4" multiple>
+				<optgroup label="Russians">
+					<option value="1">HTML</option>
+					<option value="2">JAVA</option>
+					<option value="3" selected>PHP</option>
+					<option value="4">XML</option>
+				</optgroup>
+					<optgroup label="English">
+					<option value="1">HTML</option>
+					<option value="2">JAVA</option>
+					<option value="3" selected>PHP</option>
+					<option value="4">XML</option>
+				</optgroup>
+			</select>
+			<textarea name="msg" cols="10" rows="5">
+				Какой-то текст
+			</textarea>
+			<input type="file" name="upload"/>
+			<input type="email" name="msil"/>
+			<input type="number" name="num"/>
+			<input type="hidden" name="x" value="10"/>
+		</form>
+	</body>
+</html>
