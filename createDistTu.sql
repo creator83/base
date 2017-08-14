@@ -43,7 +43,33 @@ CREATE TABLE  person
 	
 )ENGINE = INNODB;
 
+CREATE TABLE job
+(	
+	id int unsigned NOT NULL AUTO_INCREMENT,
+	name CHAR (100) CHARACTER SET utf8 COLLATE  utf8_general_ci NOT NULL,
+	rascenka CHAR (20) CHARACTER SET utf8 COLLATE  utf8_general_ci NOT NULL,
+	mesure CHAR (10) CHARACTER SET utf8 COLLATE  utf8_general_ci NOT NULL,
+	FOREIGN KEY ixMesure(mesure) REFERENCES mesure (name),
+	PRIMARY KEY ixId (id)
+)ENGINE = INNODB;
 
+CREATE TABLE mesure
+(	
+	name CHAR (10) CHARACTER SET utf8 COLLATE  utf8_general_ci NOT NULL,
+	PRIMARY KEY ixName (name)
+)ENGINE = INNODB;
+
+INSERT INTO job (name, rascenka, mesure)
+VALUES ('Очистка камер: от мокрого ила и грязи без труб и арматуры', 'ТЕРр66-10-6', '1м3'),
+('Погрузочные работы при автомобильных перевозках: мусора строительного с погрузкой экскаваторами ёмкостью ковша до 0,5 м3','ТССЦпг01-01-01-043','1т'),
+('Перевозка грузов автомобилями-самосвалами грузоподъёмностью 10т, работающих вне карьера, на расстояние: до 14 км I класс грунтов','ТССЦпг03-21-01-014','1т'),
+('Промывка спецмашинами "Скания" и "SISU" канализационных трубопроводов диаметром: 300мм','ТЕРр66-43-2', '100м'),
+('Промывка спецмашинами "Скания" и "SISU" канализационных трубопроводов диаметром: 400мм','ТЕРр66-43-3', '100м'),
+('Промывка спецмашинами "Скания" и "SISU" канализационных трубопроводов диаметром: 500мм','ТЕРр66-43-4', '100м'),
+('Установка металлических решёток приямков','ТЕР08-02-007-03', '1т');
+
+INSERT INTO mesure (name)
+VALUES ('1м3'),('1т'),('100м');
 
 CREATE TABLE chiefs 
 (	
@@ -54,6 +80,9 @@ CREATE TABLE chiefs
 	PRIMARY KEY ixName (sureName)
 )ENGINE = INNODB;
 
+ALTER TABLE job ADD COLUMN rascenka CHAR (20) CHARACTER SET utf8 COLLATE  utf8_general_ci NOT NULL;
+
+
 CREATE TABLE distPos 
 (	
 	id int unsigned NOT NULL AUTO_INCREMENT,
@@ -61,7 +90,7 @@ CREATE TABLE distPos
 	PRIMARY KEY ixId (id)
 )ENGINE = INNODB;
 
-ALTER TABLE distPos MODIFY name CHAR (100) CHARACTER SET utf8 COLLATE  utf8_general_ci NOT NULL;
+ALTER TABLE job MODIFY name CHAR (150) CHARACTER SET utf8 COLLATE  utf8_general_ci NOT NULL;
 
 
 INSERT INTO distPos (name)
@@ -101,7 +130,7 @@ ALTER TABLE letters MODIFY filePlace CHAR(100) CHARACTER SET utf8 COLLATE  utf8_
 
 ALTER TABLE letters MODIFY typeLetter ENUM ('обращение','служебная записка', 'инициативное письмо', 'для сводного ответа', 'поручения') CHARACTER SET utf8 NOT NULL;
 ALTER TABLE stateReg ADD prfx ENUM ('г.', 'с.','х.','п.','ст.') CHARACTER SET utf8 NOT NULL;
-
+ALTER TABLE stateReg MODIFY prfx ENUM ('г.', 'с.','х.','п.','ст.', 'д.') CHARACTER SET utf8 NOT NULL;
 ALTER TABLE chiefs ADD novoross TINYINT DEFAULT 0 NOT NULL;
 
 ALTER TABLE tu DROP COLUMN street;
