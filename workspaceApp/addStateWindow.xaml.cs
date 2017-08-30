@@ -31,8 +31,9 @@ namespace workspaceApp
             regionSelect.SelectedIndex = globalEl.sItems.region;
             prfx.Items.Add("г.");
             prfx.Items.Add("с.");
-            prfx.Items.Add("ст.");
             prfx.Items.Add("х.");
+            prfx.Items.Add("п.");
+            prfx.Items.Add("ст.");
             prfx.Items.Add("д.");
             prfx.SelectedIndex = prfx.Items.IndexOf("г.");
             addButton.ToolTip = "Добавить новый населённый пункт";
