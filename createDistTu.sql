@@ -1,4 +1,80 @@
 
+ALTER TABLE contractor ADD COLUMN start_ DATE;
+ALTER TABLE contractor ADD COLUMN end_ DATE;
+
+
+CREATE TABLE contracts
+(	
+        id int unsigned NOT NULL AUTO_INCREMENT,
+        contragent int unsigned NOT NULL, 
+        name CHAR (200) CHARACTER SET utf8 COLLATE  utf8_general_ci NOT NULL,
+		number CHAR (20) CHARACTER SET utf8 COLLATE  utf8_general_ci NOT NULL,
+        summ  double,
+		start_ DATE NOT NULL,
+		end_ DATE NOT NULL,
+        FOREIGN KEY ixContragent(contragent) REFERENCES contragent (id),
+        PRIMARY KEY ixId (id)
+)ENGINE = INNODB;
+
+INSERT INTO contracts (contragent, name, number, start_, end_) 
+VALUES ((SELECT id from contragent WHERE sureName = 'Носик'), 
+"Обслуживание систем ливнеотведения Приморского внутригородского района", 
+"2", STR_TO_DATE('01-01-2017','%d-%m-%Y'), STR_TO_DATE('30-12-2017','%d-%m-%Y'));
+
+INSERT INTO contracts (contragent, name, number, start_, end_) 
+VALUES ((SELECT id from contragent WHERE sureName = 'Лиш'), 
+"Обслуживание систем ливнеотведения Новороссийского района", 
+"2", STR_TO_DATE('01-01-2017','%d-%m-%Y'), STR_TO_DATE('30-12-2017','%d-%m-%Y'));
+
+CREATE TABLE applicant
+(	
+	id int unsigned NOT NULL AUTO_INCREMENT,
+	name CHAR (200) CHARACTER SET utf8 COLLATE  utf8_general_ci NOT NULL,
+	PRIMARY KEY ixId (id)
+)ENGINE = INNODB;
+
+CREATE TABLE municipal_structures
+(	
+	id int unsigned NOT NULL AUTO_INCREMENT,
+	name CHAR (200) CHARACTER SET utf8 COLLATE  utf8_general_ci NOT NULL,
+	PRIMARY KEY ixId (id)
+)ENGINE = INNODB;
+
+
+INSERT INTO municipal_structures (name) 
+VALUE ("МКУ \"Управление гидротехнических сооружений и систем ливнеотведения\"");
+
+INSERT INTO municipal_structures (name) 
+VALUE ("МБУ \"Безопасный город\"");
+
+CREATE TABLE tasks
+(	
+	id int unsigned NOT NULL AUTO_INCREMENT,
+    name CHAR (200) CHARACTER SET utf8 COLLATE  utf8_general_ci NOT NULL,
+	contract int unsigned NOT NULL,
+	applicant int unsigned NOT NULL,
+	start_ DATE NOT NULL,
+	end_ DATE NOT NULL,
+	FOREIGN KEY ixContract(contract) REFERENCES service_contracts (id),
+	FOREIGN KEY ixApplicant(applicant) REFERENCES municipal_structures (id),
+    PRIMARY KEY ixId (id)
+)ENGINE = INNODB;
+
+CREATE TABLE service_contracts
+(	
+	id int unsigned NOT NULL AUTO_INCREMENT,
+	contract int unsigned NOT NULL, 
+	district CHAR (20) CHARACTER SET utf8 COLLATE  utf8_general_ci NOT NULL, 
+	FOREIGN KEY ixDistrict(district) REFERENCES district2 (name),
+	FOREIGN KEY ixContract(contract) REFERENCES contracts (id),
+	PRIMARY KEY ixId (id)
+)ENGINE = INNODB;
+
+
+
+start_ = STR_TO_DATE('01-01-2017','%d-%m-%Y'), 
+end_ = STR_TO_DATE('30-12-2017','%d-%m-%Y') 
+WHERE contragent = ;
 --создание таблицы районы
 
 CREATE TABLE district 
@@ -168,6 +244,14 @@ SELECT CONSTRAINT_NAME FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
 WHERE REFERENCED_TABLE_SCHEMA = 'workspace' AND REFERENCED_TABLE_NAME = 'tu';
 
 ALTER TABLE chiefs MODIFY workDistrict int unsigned NOT NULL;
+
+
+UPDATE contractor SET
+start_ = STR_TO_DATE('01-01-2017','%d,%m,%Y'), 
+end_ = STR_TO_DATE('30-12-2017','%d,%m,%Y') 
+WHERE contragent = (SELECT id from contragent WHERE sureName = 'Носик');
+
+INSERT INTO 
 
 UPDATE tu2 SET
 stateReg = 'Новороссийск' 
