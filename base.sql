@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.18, for Win32 (AMD64)
+-- MySQL dump 10.13  Distrib 5.7.19, for Win32 (AMD64)
 --
--- Host: localhost    Database: workspace
+-- Host: localhost    Database: workbase
 -- ------------------------------------------------------
--- Server version	5.7.18-log
+-- Server version	5.7.19
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -77,6 +77,62 @@ LOCK TABLES `chiefs` WRITE;
 /*!40000 ALTER TABLE `chiefs` DISABLE KEYS */;
 INSERT INTO `chiefs` VALUES ('Алексеенко','Андрей','Анатольевич',3,'Заместитель главы (губернатора) Краснодарского края'),('Дяченко','Игорь','Алексеевич',4,'Глава администрации муниципального образования город Новороссийск'),('Колпакиди','Иван','Георгиевич',4,'Заместитель начальника МКУ \"Управление гидротехнических сооружений и систем ливнеотведения\"'),('Котляр','Ольга','Игоревна',4,'Начальник отдела по делам молодёжи'),('Кошелев','Виталий','Сергеевич',4,'Главный специалист МКУ \"Управление гидротехнических сооружений и систем ливнеотведения'),('Оганесян','Игорь','Лерникович',4,'Начальник управления МКУ \"Управление гидротехнических сооружений и систем ливнеотведения\"'),('Панченко','Ирина','Владимировна',4,'Начальник отдела экологической безопасности'),('Пужанский','Олег','Валерьевич',4,'Главный специалист МКУ \"Управление гидротехнических сооружений и систем ливнеотведения\"'),('Служалый','Александр','Владимирович',4,'Заместитель главы муниципального образования город Новороссийск'),('Чумак','Василий','Иванович',4,'Глава администрации Новороссийского района');
 /*!40000 ALTER TABLE `chiefs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contractor`
+--
+
+DROP TABLE IF EXISTS `contractor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contractor` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `contragent` int(10) unsigned NOT NULL,
+  `contract` int(10) unsigned NOT NULL,
+  `district` char(20) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ixDistrict` (`district`),
+  KEY `ixContragent` (`contragent`),
+  CONSTRAINT `contractor_ibfk_1` FOREIGN KEY (`district`) REFERENCES `district2` (`name`),
+  CONSTRAINT `contractor_ibfk_2` FOREIGN KEY (`contragent`) REFERENCES `contragent` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contractor`
+--
+
+LOCK TABLES `contractor` WRITE;
+/*!40000 ALTER TABLE `contractor` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contractor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contragent`
+--
+
+DROP TABLE IF EXISTS `contragent`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contragent` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` char(100) CHARACTER SET utf8 NOT NULL,
+  `sureName` char(20) CHARACTER SET utf8 NOT NULL,
+  `firstName` char(20) CHARACTER SET utf8 NOT NULL,
+  `midleName` char(20) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contragent`
+--
+
+LOCK TABLES `contragent` WRITE;
+/*!40000 ALTER TABLE `contragent` DISABLE KEYS */;
+INSERT INTO `contragent` VALUES (1,'ООО \"Аверс\"','Носик','Виктор','Алексеевич'),(2,'ООО \"Астон-М\"','Лиш','Андрей','Николаевич');
+/*!40000 ALTER TABLE `contragent` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -508,4 +564,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-09-01 14:33:27
+-- Dump completed on 2017-10-03 11:49:58
